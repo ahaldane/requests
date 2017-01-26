@@ -762,13 +762,9 @@ def get_auth_from_url(url):
     :rtype: (str,str)
     """
     parsed = urlparse(url)
-
-    try:
-        auth = (unquote(parsed.username), unquote(parsed.password))
-    except (AttributeError, TypeError):
-        auth = ('', '')
-
-    return auth
+    username = unquote(parsed.username or '')
+    password = unquote(parsed.password or '')
+    return (username, password)
 
 
 # Moved outside of function to avoid recompile every call

@@ -303,6 +303,10 @@ ENCODED_PASSWORD = compat.quote(PASSWORD, '')
             ('user', 'pass')
         ),
         (
+            'http://user@complex.url.com/path?query=yes',
+            ('user', '')
+        ),
+        (
             'http://user:pass%20pass@complex.url.com/path?query=yes',
             ('user', 'pass pass')
         ),
